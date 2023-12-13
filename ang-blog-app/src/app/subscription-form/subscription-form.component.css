@@ -1,0 +1,8 @@
+.card {
+  background-color: var(--secondary-color);
+  max-width: 1200px;
+}
+
+.subs-text {
+  max-width: 500px;
+}
