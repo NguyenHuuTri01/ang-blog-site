@@ -11,7 +11,6 @@ export class CategoriesService {
 
   saveData(data: any) {
     this.afs.collection('categories').add(data).then(docRef => {
-      console.log(docRef)
       this.toastr.success('Data Insert Successfully ..!')
     }).catch(err => { console.log(err) })
   }
@@ -26,6 +25,18 @@ export class CategoriesService {
         })
       })
     )
+  }
+
+  updateData(id: any, EditData: any) {
+    this.afs.collection('categories').doc(id).update(EditData).then(docRef => {
+      this.toastr.success('Data Updated Successfully ..!')
+    })
+  }
+
+  deleteData(id: any) {
+    this.afs.collection('categories').doc(id).delete().then(docRef => {
+      this.toastr.success('Data Deleted ..!')
+    })
   }
 
 }
