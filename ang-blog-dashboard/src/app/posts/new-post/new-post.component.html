@@ -42,6 +42,9 @@
           <label for="" class="form-label">Please Select a post category</label>
           <select class="form-select">
             <option value="" disabled>Please select a category</option>
+            <option *ngFor="let category of categories" value="">
+              {{ category.data.category }}
+            </option>
           </select>
         </div>
 
@@ -64,7 +67,6 @@
           <div class="card-body">
             <div>
               <label for="" class="form-label">Content</label>
-              <textarea cols="30" rows="10" class="form-control"></textarea>
             </div>
           </div>
         </div>
