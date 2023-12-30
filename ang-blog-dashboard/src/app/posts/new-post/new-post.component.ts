@@ -25,7 +25,8 @@ export class NewPostComponent implements OnInit {
   });
 
   constructor(
-    private categoryService: CategoriesService, private fb: FormBuilder,
+    private categoryService: CategoriesService,
+    private fb: FormBuilder,
     private postService: PostsService
   ) { }
 
@@ -57,7 +58,7 @@ export class NewPostComponent implements OnInit {
     let splitted = this.postForm.value.category.split('-')
     const postData: Post = {
       title: this.postForm.value.title,
-      permalink: this.postForm.value.permalink,
+      permalink: this.permalink,
       category: {
         categoryId: splitted[0],
         category: splitted[1]
@@ -70,7 +71,8 @@ export class NewPostComponent implements OnInit {
       status: 'new',
       createdAt: new Date()
     }
-    console.log(this.postForm.value)
-    this.postService.uploadImage(this.selectedImg)
+    this.postService.uploadImage(this.selectedImg, postData)
+    this.postForm.reset();
+    this.imgSrc = './assets/placeholder-image.jpg';
   }
 }
