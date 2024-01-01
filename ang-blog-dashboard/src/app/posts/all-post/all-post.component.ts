@@ -18,4 +18,19 @@ export class AllPostComponent implements OnInit {
     })
   }
 
+  onDelete(postImgPath: any, id: string) {
+    if (confirm('Are you sure to delete?') == true) {
+      this.postService.deleteImage(postImgPath, id);
+    } else {
+      console.log('Cancel Delete')
+    }
+  }
+
+  onFeatured(id: string, value: boolean) {
+    const featuredData = {
+      isFeatured: value
+    }
+    this.postService.markFeatured(id, featuredData);
+  }
+
 }

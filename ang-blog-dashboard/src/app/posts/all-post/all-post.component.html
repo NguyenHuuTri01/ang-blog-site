@@ -47,7 +47,35 @@
                 <td width="300">{{ post.data.excerpt }}</td>
                 <td>{{ post.data.category.category }}</td>
                 <td>{{ post.data.createdAt.toMillis() | date }}</td>
-                <td></td>
+                <td width="300">
+                  <button
+                    class="btn btn-sm btn-warning"
+                    routerLink="/posts/new"
+                    [queryParams]="{ id: post.id }"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    class="btn btn-sm btn-danger ms-2"
+                    (click)="onDelete(post.data.postImgPath, post.id)"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    *ngIf="!post.data.isFeatured"
+                    class="btn btn-sm btn-success ms-2"
+                    (click)="onFeatured(post.id, true)"
+                  >
+                    Mark Featured
+                  </button>
+                  <button
+                    *ngIf="post.data.isFeatured"
+                    class="btn btn-sm btn-info ms-2"
+                    (click)="onFeatured(post.id, false)"
+                  >
+                    Remove Featured
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
