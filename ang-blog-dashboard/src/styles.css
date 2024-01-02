@@ -31,6 +31,11 @@ body {
   background-color: var(--primary-color);
   color: var(--secondary-color);
 }
+.bg-theme:hover {
+  background-color: #138496;
+  color: #fff;
+  border-color: #117a8b;
+}
 .bg-secondary-theme {
   background-color: var(--secondary-color);
 }
@@ -39,7 +44,8 @@ body {
 }
 
 input[type="text"],
-input[type="email"] {
+input[type="email"],
+input[type="password"] {
   height: 60px;
   padding-left: 20px;
   width: 100%;
@@ -48,6 +54,10 @@ input[type="email"] {
   color: var(--secondary-color);
   height: 58px;
   border: none;
-  font-size: 13px;
   background-color: var(--primary-color);
+}
+.btn-theme:hover {
+  background-color: #138496;
+  color: #fff;
+  border-color: #117a8b;
 }
