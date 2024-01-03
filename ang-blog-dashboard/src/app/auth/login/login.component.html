@@ -8,19 +8,58 @@
             <h3 class="text-theme-primary">Login</h3>
             <p>Please login to your admin account to post a new blog post</p>
           </div>
-          <form>
+          <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
             <div class="mb-3">
-              <input type="email" class="form-control" placeholder="Email" />
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                name="email"
+                #Email="ngModel"
+                ngModel
+                required
+                email
+                [ngClass]="{ 'is-invalid': Email.touched && Email.invalid }"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="Email.touched && Email.invalid"
+              >
+                <div *ngIf="Email.errors?.['required']">
+                  Email Cannot be Empty
+                </div>
+                <div *ngIf="Email.errors?.['email']">
+                  Please Enter a Valid Email Address
+                </div>
+              </div>
             </div>
             <div class="mb-3">
               <input
                 type="password"
                 class="form-control"
                 placeholder="Password"
+                name="password"
+                #Password="ngModel"
+                ngModel
+                required
+                [ngClass]="{
+                  'is-invalid': Password.touched && Password.invalid
+                }"
               />
+              <div
+                class="alert alert-danger"
+                *ngIf="Password.touched && Password.invalid"
+              >
+                Password Cannot be Empty
+              </div>
             </div>
             <div class="d-grid">
-              <button class="btn btn-theme btn-info">Login</button>
+              <button
+                class="btn btn-theme btn-info"
+                [disabled]="loginForm.invalid"
+              >
+                Login
+              </button>
             </div>
           </form>
         </div>
