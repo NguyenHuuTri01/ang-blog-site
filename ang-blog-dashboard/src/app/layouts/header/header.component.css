@@ -4,3 +4,9 @@ header {
 .site-logo {
   font-size: 1.5em;
 }
+.user-email {
+  color: #527853;
+  background-color: #ffad84;
+  padding: 0 10px;
+  border-radius: 10px;
+}

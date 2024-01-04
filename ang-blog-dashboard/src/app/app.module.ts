@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { environment } from 'src/environments/environment.development';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -46,7 +47,8 @@ import { LoginComponent } from './auth/login/login.component';
     HttpClientModule,
     AngularEditorModule,
     ReactiveFormsModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

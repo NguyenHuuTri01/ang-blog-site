@@ -13,12 +13,39 @@ body {
   font-size: 14px;
   color: var(--body-text-color);
 }
+
+.scroller {
+  width: 100%;
+  height: 200px;
+  overflow-y: scroll;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #55aa55;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #88dd88;
+}
+
 .site-logo {
   padding: 5px 20px;
   border-radius: 20px;
   background-color: var(--secondary-color);
   color: var(--primary-color);
-  text-decoration: none;
+  cursor: pointer;
 }
 .nav-link {
   color: var(--primary-color);
