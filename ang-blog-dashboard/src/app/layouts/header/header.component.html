@@ -2,9 +2,12 @@
   <div class="container justify-content-center">
     <span routerLink="/" class="site-logo">ANG-BLOG</span>
   </div>
-  <div class="container justify-content-center">
+  <div class="container justify-content-center" *ngIf="isLoggedIn$ | async">
     <span class="me-3 user-email">{{ userEmail }}</span>
-    <button class="btn btn-sm btn-info bg-secondary-theme text-theme-primary">
+    <button
+      class="btn btn-sm btn-info bg-secondary-theme text-theme-primary"
+      (click)="onLogOut()"
+    >
       Logout
     </button>
   </div>

@@ -5,8 +5,8 @@ header {
   font-size: 1.5em;
 }
 .user-email {
-  color: #527853;
-  background-color: #ffad84;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
   padding: 0 10px;
   border-radius: 10px;
 }
