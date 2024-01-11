@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -9,12 +9,14 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
 
-  loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  localStorageValue: any;
+  loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(localStorage.getItem('user') ? true : false);
+  isLoggedInGuard: boolean = localStorage.getItem('user') ? true : false;
 
   constructor(
     private afAuth: AngularFireAuth,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
   ) { }
 
   login(email: string, password: string) {
@@ -22,6 +24,7 @@ export class AuthService {
       this.toastr.success('Logged In Successfully');
       this.loadUser();
       this.loggedIn.next(true);
+      this.isLoggedInGuard = true;
       this.router.navigate(['/']);
     }).catch(e => {
       this.toastr.warning(e.message);
@@ -38,6 +41,7 @@ export class AuthService {
       this.toastr.success('User Logged Out Successfuly');
       localStorage.removeItem('user');
       this.loggedIn.next(false);
+      this.isLoggedInGuard = false;
       this.router.navigate(['/login']);
     });
   }
