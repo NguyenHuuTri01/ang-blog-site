@@ -70,7 +70,7 @@
                   </button>
                   <button
                     *ngIf="post.data.isFeatured"
-                    class="btn btn-sm btn-theme ms-2"
+                    class="btn btn-sm btn-theme ms-2 btn-remove-feature"
                     (click)="onFeatured(post.id, false)"
                   >
                     Remove Featured
