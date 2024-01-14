@@ -4,6 +4,7 @@
   padding-bottom: 130px;
   background-color: var(--primary-color);
 }
+
 @media screen and (max-width: 1000px) {
   .featured-section {
     padding-left: 0px;
