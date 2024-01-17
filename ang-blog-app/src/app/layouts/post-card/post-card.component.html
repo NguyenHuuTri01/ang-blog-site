@@ -1,4 +1,8 @@
-<div class="card shadow-effect" *ngIf="postData">
+<div
+  class="card shadow-effect"
+  *ngIf="postData"
+  [routerLink]="['/post', postData.id]"
+>
   <div
     class="img-post"
     [ngStyle]="{ backgroundImage: 'url(' + postData.data.postImgPath + ')' }"
@@ -7,7 +11,11 @@
     <small class="bg-light text-danger text-center">{{
       postData.data.category.category
     }}</small>
-    <small class="bg-light text-success text-center ms-3">Featured</small>
+    <small
+      class="bg-light text-success text-center ms-3"
+      *ngIf="postData.data.isFeatured"
+      >Featured</small
+    >
     <small class="bg-light text-info text-center ms-3"
       >Views - {{ postData.data.views }}</small
     >
