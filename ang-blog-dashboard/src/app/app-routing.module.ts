@@ -6,6 +6,7 @@ import { AllPostComponent } from './posts/all-post/all-post.component';
 import { NewPostComponent } from './posts/new-post/new-post.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthClassGuard } from './services/auth-class.guard';
+import { SubscribersComponent } from './subscribers/subscribers.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthClassGuard] },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'categories', component: CategoriesComponent, canActivate: [AuthClassGuard] },
   { path: 'posts', component: AllPostComponent, canActivate: [AuthClassGuard] },
   { path: 'posts/new', component: NewPostComponent, canActivate: [AuthClassGuard] },
+  { path: 'subscribers', component: SubscribersComponent, canActivate: [AuthClassGuard] },
 ];
 
 @NgModule({
